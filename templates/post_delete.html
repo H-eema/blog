@@ -5,20 +5,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 
 <body>
     {% extends 'base.html' %}
 
     {% block content %}
-    <div class="post-entry">
-        <h2>{{ post.title }}</h2>
-        <p>{{ post.body }}</p>
-    </div>
+    <h1>Delete Post</h1>
 
-    <a href="{% url 'post_edit' post.pk %}">+ Edit Blog Post</a>
-    <a href="{% url 'post_delete' post.pk %}">+ Delete Blog Post</a>
+    <form action="" method="post">{% csrf_token %}
+        <p>Are you sure you want to delete "{{ post.title }}"</p>
+        <input type="submit" value="Confirm">
+    </form>
     {% endblock content %}
+
+
+
 
 </body>
 
